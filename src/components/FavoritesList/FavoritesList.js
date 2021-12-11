@@ -14,12 +14,11 @@ const FavoritesList = ({favUsers}) => {
     setFavUsersList(favUsers);
   }, [favUsers]);
 
-  function handleFavorite(index) {
-    let arr = [...favUsersList];
-    arr.splice(index, 1);
-
-    localStorage.setItem("favorites", JSON.stringify(arr));
-    setFavUsersList(arr);
+  function removeFavorite(index) {
+    let newFavList = [...favUsersList];
+    newFavList.splice(index, 1);
+    localStorage.setItem("favorites", JSON.stringify(newFavList));
+    setFavUsersList(newFavList);
   }
 
 
@@ -30,7 +29,7 @@ const FavoritesList = ({favUsers}) => {
           return (
             <S.User
               key={index}
-              onClick={() => handleFavorite(index)}
+              onClick={() => removeFavorite(index)}
             >
               <S.UserPicture src={user?.picture.large} alt="" />
               <S.UserInfo>

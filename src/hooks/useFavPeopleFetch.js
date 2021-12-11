@@ -3,19 +3,16 @@ import { useState, useEffect } from "react";
 export const useFavPeopleFetch = () => {
 
   const [favUsers, setFavUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fetchFavUsers();
   }, []);
 
-  function fetchFavUsers() {
-    setIsLoading(true);
-    const response = JSON.parse(localStorage.getItem('favorites'))||[];
-    setIsLoading(false);
+  async function fetchFavUsers() {
+    const response = await JSON.parse(localStorage.getItem('favorites'))||[];
     setFavUsers(response);
   }
 
-  return { favUsers,isLoading, fetchFavUsers };
+  return { favUsers,fetchFavUsers };
 
 };
