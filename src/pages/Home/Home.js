@@ -1,14 +1,12 @@
 import React from "react";
 import Text from "components/Text";
 import UserList from "components/UserList";
-import { useFavPeopleFetch, usePeopleFetch } from "hooks";
+import { usePeopleFetch } from "hooks";
 import * as S from "./style";
 
 const Home = () => {
   const { users, isLoading } = usePeopleFetch();
-  const {favUsers} = useFavPeopleFetch() 
-
-
+ 
 
   return (
     <S.Home>
@@ -18,7 +16,7 @@ const Home = () => {
             PplFinder
           </Text>
         </S.Header>
-        <UserList users={users} isLoading={isLoading} favUsers={favUsers}/>
+        <UserList users={users} isLoading={isLoading}/>
       </S.Content>
     </S.Home>
   );

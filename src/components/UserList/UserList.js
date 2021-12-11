@@ -9,7 +9,7 @@ import * as S from "./style";
 const UserList = ({ users, isLoading }) => {
   const [clickedUserId, setClickedUserId] = useState([]);
   const [hoveredUserId, setHoveredUserId] = useState();
-  const [usersList, setUsersList] = useState(users);
+  const [usersList, setUsersList] = useState([]);
   const [countries, setCountries] = useState([
     { value: "BR", label: "Brazil", isChecked: false },
     { value: "AU", label: "Australia", isChecked: false },

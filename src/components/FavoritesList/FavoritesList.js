@@ -5,15 +5,14 @@ import IconButton from "@material-ui/core/IconButton";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import * as S from "./style";
 
-const FavoritesList = () => {
+const FavoritesList = ({favUsers}) => {
 
 
   const [favUsersList, setFavUsersList] = useState([]);
 
   useEffect(() => {
-    const response = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavUsersList(response);
-  }, []);
+    setFavUsersList(favUsers);
+  }, [favUsers]);
 
   function handleFavorite(index) {
     let arr = [...favUsersList];
